@@ -1,16 +1,14 @@
-﻿namespace GoogleHashCode.Model
+﻿using GoogleHashCode.Base;
+
+namespace GoogleHashCode.Model
 {
-	public class Input
+	public class Input : IInput
 	{
 		public int I { get; set; }
 
-		public static Input Parse(string[] values)
+		public void Parse(string[] values)
 		{
-			var input = new Input();
-
-			input.I = 10;
-
-			return input;
+			I = 10;
 		}
 	}
 }

@@ -3,23 +3,12 @@ using GoogleHashCode.Model;
 
 namespace GoogleHashCode.Algorithms
 {
-	public class Solver1 : ISolver<Input, Output>
+	public class Solver1 : BaseSolver<Input, Output>
 	{
-		public Output Out { get; set; } = new Output();
-
-		public void Solve(Input input)
+		public override void Solve()
 		{
-			Out.J = input.I;
+			Output.J = Input.I;
 		}
 
-		public Output GetOutput()
-		{
-			return Out;
-		}
-
-		public int GetScore()
-		{
-			return 1;
-		}
 	}
 }
