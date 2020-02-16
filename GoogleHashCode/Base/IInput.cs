@@ -1,7 +1,7 @@
 ﻿namespace GoogleHashCode.Base
 {
-	public interface IInput<out T>
+	public interface IInput
 	{
-		T Parse(string[] values);
+		void Parse(string[] values);
 	}
 }
