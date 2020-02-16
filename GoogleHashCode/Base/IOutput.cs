@@ -1,0 +1,7 @@
+﻿namespace GoogleHashCode.Base
+{
+	public interface IOutput
+	{
+		string[] GetOutputFormat();
+	}
+}
