@@ -10,15 +10,13 @@ namespace GoogleHashCode
 	{
 		public static string[] ReadFromFile(this string fileName)
 		{
-			var readAllLines = File.ReadAllLines(Path.Combine(EnvironmentConstants.DataPath, EnvironmentConstants.InputPath, fileName));
+			var readAllLines = File.ReadAllLines(Path.Combine(EnvironmentConstants.InputPath, fileName));
 			return readAllLines;
 		}
 
 		public static void WriteToFile(this string fileName, string[] lines)
 		{
-			var path = Path.Combine(EnvironmentConstants.DataPath, EnvironmentConstants.OutputPath);
-			Directory.CreateDirectory(path);
-			File.WriteAllLines(Path.Combine(path, fileName), lines);
+			File.WriteAllLines(Path.Combine(EnvironmentConstants.OutputPath, fileName), lines);
 		}
 
 		public static void WriteToFile(this string fileName, string line)
@@ -50,9 +48,7 @@ namespace GoogleHashCode
 			analzer.Input.Parse(content);
 			analzer.Analyze();
 
-			var path = Path.Combine(EnvironmentConstants.DataPath, EnvironmentConstants.AnalysisPath);
-			Directory.CreateDirectory(path);
-			File.WriteAllText(Path.Combine(path, fileName), analzer.Results.ToString());
+			File.WriteAllText(Path.Combine(EnvironmentConstants.AnalysisPath, fileName), analzer.Results.ToString());
 		}
 	}
 }
