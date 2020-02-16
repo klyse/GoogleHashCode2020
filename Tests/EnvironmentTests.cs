@@ -14,6 +14,9 @@ namespace Tests
 
 			if (!string.IsNullOrWhiteSpace(EnvironmentConstants.InputPath))
 				Directory.CreateDirectory(EnvironmentConstants.InputPath);
+
+			if (!string.IsNullOrWhiteSpace(EnvironmentConstants.AnalysisPath))
+				Directory.CreateDirectory(EnvironmentConstants.AnalysisPath);
 		}
 
 		[Test]
