@@ -14,16 +14,9 @@ namespace Tests
 		[TestCase("c_memorable_moments.txt")]
 		[TestCase("d_pet_pictures.txt")]
 		[TestCase("e_shiny_selfies.txt")]
-		public void Solver1(string example)
+		public void Solver1(string fileName)
 		{
-			var content = example.ReadFromFile();
-			var solver = new Solver1();
-			var input = Input.Parse(content);
-			solver.Solve(input);
-			var output = solver.GetOutput();
-
-			Console.WriteLine($"Total Score: {solver.GetScore()}");
-			example.WriteToFile(output.GetOutputFormat());
+			new Solver1().ExecuteSolver(fileName);
 			Assert.Pass();
 		}
 	}

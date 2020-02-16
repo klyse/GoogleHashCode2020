@@ -1,4 +1,7 @@
-﻿using System.Collections.Generic;
+﻿using GoogleHashCode.Base;
+using System;
+using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 
 namespace GoogleHashCode
@@ -20,5 +23,23 @@ namespace GoogleHashCode
 		{
 			WriteToFile(fileName, new List<string> { line }.ToArray());
 		}
+
+		public static void ExecuteSolver<TInput, TOutput>(this BaseSolver<TInput, TOutput> solver, string fileName) where TInput : IInput, new() where TOutput : IOutput, new()
+		{
+			var sw = new Stopwatch();
+			sw.Start();
+
+			var content = fileName.ReadFromFile();
+			
+			solver.Input.Parse(content);
+			solver.Solve();
+
+			Console.WriteLine($"Total Score: {solver.Output.GetScore()}");
+
+			fileName.WriteToFile(solver.Output.GetOutputFormat());
+
+			Console.WriteLine($"Execution Time: {sw.Elapsed}");
+		}
+
 	}
 }
