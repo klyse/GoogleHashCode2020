@@ -16,7 +16,9 @@ namespace GoogleHashCode
 
 		public static void WriteToFile(this string fileName, string[] lines)
 		{
-			File.WriteAllLines(Path.Combine(EnvironmentConstants.DataPath, EnvironmentConstants.OutputPath, fileName), lines);
+			var path = Path.Combine(EnvironmentConstants.DataPath, EnvironmentConstants.OutputPath);
+			Directory.CreateDirectory(path);
+			File.WriteAllLines(Path.Combine(path, fileName), lines);
 		}
 
 		public static void WriteToFile(this string fileName, string line)
@@ -41,5 +43,16 @@ namespace GoogleHashCode
 			Console.WriteLine($"Execution Time: {sw.Elapsed}");
 		}
 
+		public static void ExecuteAnalyzer<TInput>(this BaseAnalyzer<TInput> analzer, string fileName) where TInput : IInput, new()
+		{
+			var content = fileName.ReadFromFile();
+
+			analzer.Input.Parse(content);
+			analzer.Analyze();
+
+			var path = Path.Combine(EnvironmentConstants.DataPath, EnvironmentConstants.AnalysisPath);
+			Directory.CreateDirectory(path);
+			File.WriteAllText(Path.Combine(path, fileName), analzer.Results.ToString());
+		}
 	}
 }

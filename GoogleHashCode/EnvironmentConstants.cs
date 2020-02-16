@@ -11,5 +11,6 @@ namespace GoogleHashCode
 
 		public static string InputPath => Path.Combine(DataPath, "Input");
 		public static string OutputPath => Path.Combine(DataPath, "Output");
+		public static string AnalysisPath => Path.Combine(DataPath, "Analysis");
 	}
 }
