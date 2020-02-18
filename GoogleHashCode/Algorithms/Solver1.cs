@@ -16,10 +16,5 @@ namespace GoogleHashCode.Algorithms
 		{
 			return Out;
 		}
-
-		public int GetScore()
-		{
-			return 1;
-		}
 	}
 }

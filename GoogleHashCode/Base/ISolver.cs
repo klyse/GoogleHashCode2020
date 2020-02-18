@@ -4,6 +4,5 @@
 	{
 		void Solve(TInput input);
 		TOutput GetOutput();
-		int GetScore();
 	}
 }

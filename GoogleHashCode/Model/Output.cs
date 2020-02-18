@@ -10,5 +10,10 @@ namespace GoogleHashCode.Model
 		{
 			return new[] { J.ToString() };
 		}
+
+		public int GetScore()
+		{
+			return 1;
+		}
 	}
 }

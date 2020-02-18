@@ -3,5 +3,6 @@
 	public interface IOutput
 	{
 		string[] GetOutputFormat();
+		int GetScore();
 	}
 }

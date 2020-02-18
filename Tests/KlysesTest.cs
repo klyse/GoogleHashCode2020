@@ -22,7 +22,7 @@ namespace Tests
 			solver.Solve(input);
 			var output = solver.GetOutput();
 
-			Console.WriteLine($"Total Score: {solver.GetScore()}");
+			Console.WriteLine($"Total Score: {output.GetScore()}");
 			example.WriteToFile(output.GetOutputFormat());
 			Assert.Pass();
 		}
