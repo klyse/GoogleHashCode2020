@@ -7,13 +7,13 @@ namespace GoogleHashCode
 	{
 		public static string[] ReadFromFile(this string fileName)
 		{
-			var readAllLines = File.ReadAllLines(Path.Combine(EnvironmentConstants.DataPath, EnvironmentConstants.InputPath, fileName));
+			var readAllLines = File.ReadAllLines(Path.Combine(EnvironmentConstants.InputPath, fileName));
 			return readAllLines;
 		}
 
 		public static void WriteToFile(this string fileName, string[] lines)
 		{
-			File.WriteAllLines(Path.Combine(EnvironmentConstants.DataPath, EnvironmentConstants.OutputPath, fileName), lines);
+			File.WriteAllLines(Path.Combine(EnvironmentConstants.OutputPath, fileName), lines);
 		}
 
 		public static void WriteToFile(this string fileName, string line)
