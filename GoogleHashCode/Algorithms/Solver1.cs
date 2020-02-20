@@ -1,4 +1,5 @@
-﻿using GoogleHashCode.Base;
+﻿using System.Linq;
+using GoogleHashCode.Base;
 using GoogleHashCode.Model;
 
 namespace GoogleHashCode.Algorithms
@@ -9,6 +10,14 @@ namespace GoogleHashCode.Algorithms
 
 		public void Solve(Input input)
 		{
+			foreach (var library in input.Libraries)
+			{
+				Out.Libraries.Add(new LibraryAction
+								  {
+									  BookIDs = library.BookIds.ToList(),
+									  ID = library.Id
+								  });
+			}
 		}
 
 		public Output GetOutput()

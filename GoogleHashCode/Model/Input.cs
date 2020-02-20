@@ -5,6 +5,7 @@ namespace GoogleHashCode.Model
 {
 	public class Library
 	{
+		public int Id { get; set; }
 		public int BookCnt { get; set; }
 		public int SignupDays { get; set; }
 		public int BooksPerDay { get; set; }
@@ -37,9 +38,10 @@ namespace GoogleHashCode.Model
 			while (index < values.Length)
 			{
 				var firstRow = values[index].Split(' ').Select(int.Parse).ToList();
-				var secondRow = values[index+1].Split(' ').Select(int.Parse).ToHashSet();
+				var secondRow = values[index + 1].Split(' ').Select(int.Parse).ToHashSet();
 				input.Libraries.Add(new Library
 									{
+										Id = index / 2 - 1,
 										BookCnt = firstRow.ElementAt(0),
 										SignupDays = firstRow.ElementAt(1),
 										BooksPerDay = firstRow.ElementAt(2),
