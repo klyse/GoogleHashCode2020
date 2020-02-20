@@ -11,6 +11,7 @@ namespace GoogleHashCode.Algorithms
 
 		public void Solve(Input input)
 		{
+			Out.Input = input;
 			foreach (var library in input.Libraries.OrderBy(c => c.SignupDays))
 			{
 				var books = input.GetBookIdScoreList(library);
