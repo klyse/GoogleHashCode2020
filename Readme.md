@@ -10,17 +10,13 @@ Solutions will be written to `\output` (created by UnitTest).
 ```
 .
 ├── input
-    ├── a_example.txt
-    ├── b_lovely_landscapes.txt
-    ├── c_memorable_moments.txt
-    ├── d_pet_pictures.txt
-    └── e_shiny_selfies.txt
+    ├── f1.txt
+    ├── f2.txt
+    ├── f3.txt
 └── output
-    ├── a_example.out
-    ├── b_lovely_landscapes.out
-    ├── c_memorable_moments.out
-    ├── d_pet_pictures.out
-    └── e_shiny_selfies.out
+    ├── f1.txt
+    ├── f2.txt
+    ├── f3.txt
 ```
 
 
