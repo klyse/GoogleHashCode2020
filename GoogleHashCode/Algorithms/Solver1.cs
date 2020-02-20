@@ -13,25 +13,6 @@ namespace GoogleHashCode.Algorithms
 		{
 			Out.Input = input;
 
-
-			Out.Libraries = new List<LibraryAction>
-							{
-								new LibraryAction
-								{
-									ID = 1,
-									BookIDs = new List<int> { 3, 2, 5, 0 },
-									BooksPerDay = 2,
-									SignupDays = 2
-								},
-								new LibraryAction
-								{
-									ID = 0,
-									BookIDs = new List<int> { 0 ,1, 2 ,3 ,4  },
-									BooksPerDay = 1,
-									SignupDays = 3
-								}
-							};
-			return;
 			foreach (var library in input.Libraries.OrderBy(c => c.SignupDays))
 			{
 				Out.Libraries.Add(new LibraryAction
