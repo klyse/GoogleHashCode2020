@@ -1,0 +1,1 @@
+git archive -o Environment\Output\source.zip HEAD
