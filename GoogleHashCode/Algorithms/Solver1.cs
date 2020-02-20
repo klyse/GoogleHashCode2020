@@ -10,7 +10,7 @@ namespace GoogleHashCode.Algorithms
 
 		public void Solve(Input input)
 		{
-			foreach (var library in input.Libraries)
+			foreach (var library in input.Libraries.OrderBy(c => c.SignupDays))
 			{
 				Out.Libraries.Add(new LibraryAction
 								  {
