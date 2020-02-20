@@ -16,7 +16,8 @@ namespace GoogleHashCode.Algorithms
 
 			var usedBooks = new HashSet<int>();
 			foreach (var library in input.Libraries
-										 .OrderBy(c => c.SignupDays + c.BookCnt / c.BooksPerDay))
+										 .OrderBy(c => c.SignupDays)
+										 .ThenByDescending(c => c.BookIds.Select(r => input.BookScores[r]).Sum(r => r)))
 			{
 				var l = new LibraryAction
 						{
@@ -25,7 +26,8 @@ namespace GoogleHashCode.Algorithms
 							BooksPerDay = library.BooksPerDay,
 							SignupDays = library.SignupDays
 						};
-				if (l.BookIDs.Count > 0)
+
+				if (l.BookIDs.Any())
 					Out.Libraries.Add(l);
 
 				usedBooks.UnionWith(l.BookIDs);
