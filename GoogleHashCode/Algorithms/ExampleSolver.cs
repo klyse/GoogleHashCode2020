@@ -19,16 +19,16 @@ namespace GoogleHashCode.Algorithms
 								new LibraryAction
 								{
 									ID = 1,
-									BookIDs = new List<int> { 3, 2, 5, 0 },
-									BooksPerDay = 2,
-									SignupDays = 2
+									BookIDs = new List<int> { 5, 2, 3 },
+									BooksPerDay = 1,
+									SignupDays = 3
 								},
 								new LibraryAction
 								{
 									ID = 0,
 									BookIDs = new List<int> { 0, 1, 2, 3, 4 },
-									BooksPerDay = 1,
-									SignupDays = 3
+									BooksPerDay = 2,
+									SignupDays = 2
 								}
 							};
 		}

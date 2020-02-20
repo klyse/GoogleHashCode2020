@@ -19,7 +19,9 @@ namespace GoogleHashCode.Algorithms
 				Out.Libraries.Add(new LibraryAction
 				{
 					BookIDs = books.OrderByDescending(q => q.score).ToBookIdList(),
-					ID = library.Id
+					ID = library.Id,
+					BooksPerDay = library.BooksPerDay,
+					SignupDays = library.SignupDays,
 				});
 			}
 
