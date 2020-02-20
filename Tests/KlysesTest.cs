@@ -10,10 +10,11 @@ namespace Tests
 	{
 		[Test]
 		[TestCase("a_example.txt")]
-		[TestCase("b_lovely_landscapes.txt")]
-		[TestCase("c_memorable_moments.txt")]
-		[TestCase("d_pet_pictures.txt")]
-		[TestCase("e_shiny_selfies.txt")]
+		[TestCase("b_read_on.txt")]
+		[TestCase("c_incunabula.txt")]
+		[TestCase("d_tough_choices.txt")]
+		[TestCase("e_so_many_books.txt")]
+		[TestCase("f_libraries_of_the_world.txt")]
 		public void Solver1(string example)
 		{
 			var content = example.ReadFromFile();
