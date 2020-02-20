@@ -35,6 +35,7 @@ namespace GoogleHashCode.Model
 
 		public int GetScore()
 		{
+			return 0;
 			var score = 0;
 			var alreadyScannedBooks = new HashSet<int>();
 
