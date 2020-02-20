@@ -5,7 +5,7 @@ using System.Text;
 namespace GoogleHashCode.Model
 {
 
-	public class Library
+	public class LibraryAction
 	{
 		public int ID { get; set; }
 
@@ -14,7 +14,7 @@ namespace GoogleHashCode.Model
 	}
 	public class Output : IOutput
 	{
-		public List<Library> Libraries { get; set; } = new List<Library>();
+		public List<LibraryAction> Libraries { get; set; } = new List<LibraryAction>();
 
 		public string[] GetOutputFormat()
 		{
