@@ -17,7 +17,7 @@ namespace Tests
 		public void Solver1(string example)
 		{
 			var content = example.ReadFromFile();
-			var solver = new Solver1();
+			var solver = new Solver2();
 			var input = Input.Parse(content);
 			solver.Solve(input);
 			var output = solver.GetOutput();
