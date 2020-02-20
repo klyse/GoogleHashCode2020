@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 
 namespace GoogleHashCode
 {
@@ -20,5 +21,12 @@ namespace GoogleHashCode
 		{
 			WriteToFile(fileName, new List<string> { line }.ToArray());
 		}
+
+		public static List<int> ToBookIdList(this IEnumerable<(int id, int score)> idScoreList)
+		{
+			return idScoreList.Select(q => q.id).ToList();
+		}
+
+		
 	}
 }

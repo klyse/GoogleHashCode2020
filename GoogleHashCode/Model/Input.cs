@@ -21,6 +21,14 @@ namespace GoogleHashCode.Model
 
 		public List<Library> Libraries { get; set; } = new List<Library>();
 
+		public List<(int id, int score)> GetBookIdScoreList(Library library)
+		{
+			var result = new List<(int id, int score)>();
+			foreach (var bookID in library.BookIds)
+				result.Add((bookID, BookScores[bookID]));
+			return result;
+		}
+
 		public static Input Parse(string[] values)
 		{
 			var input = new Input();
