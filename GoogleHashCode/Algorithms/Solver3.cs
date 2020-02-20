@@ -14,31 +14,29 @@ namespace GoogleHashCode.Algorithms
 		{
 			Out.Input = input;
 
-			var realBookScore = input.Libraries.SelectMany(c => c.BookIds.ToList()).GroupBy(c => c)
-									 .Select(c => new
-												  {
-													  Id = c.Key,
-													  Score = (decimal)c.Count()
-												  })
-									 .ToDictionary(c => c.Id, c => c.Score);
-
-			foreach (var library in input.Libraries)
+			var usedBooks = new HashSet<int>();
+			foreach (var library in input.Libraries
+										 .OrderBy(c => c.SignupDays)
+										 .ThenByDescending(c => c.BookIds.Select(r => input.BookScores[r]).Sum(r => r)))
 			{
-				Out.Libraries.Add(new LibraryAction
-								  {
-									  BookIDs = library.BookIds.OrderBy(c => realBookScore[c]).ThenByDescending(c => input.BookScores[c]).ToList(),
-									  ID = library.Id,
-									  BooksPerDay = library.BooksPerDay,
-									  SignupDays = library.SignupDays
-								  });
+				var l = new LibraryAction
+						{
+							BookIDs = library.BookIds.Except(usedBooks).OrderByDescending(c => input.BookScores[c]).ToList(),
+							ID = library.Id,
+							BooksPerDay = library.BooksPerDay,
+							SignupDays = library.SignupDays
+						};
+
+				if (l.BookIDs.Any())
+					Out.Libraries.Add(l);
+
+				usedBooks.UnionWith(l.BookIDs);
 			}
 
 			Out.Libraries = Out.Libraries
-							   .OrderBy(c => c.SignupDays)
-							   .ThenByDescending(c => c.BooksPerDay / (double)c.BookIDs.Count)
-							   .ThenBy(c => c.BookIDs
-											  .Select(r => realBookScore[r])
-											  .Sum(j => j))
+							   .OrderByDescending(c => c.BookIDs
+														.Select(j => input.BookScores[j])
+														.Sum(q => q))
 							   .ToList();
 		}
 
